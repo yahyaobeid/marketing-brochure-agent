@@ -1,66 +1,72 @@
 # Marketing Brochure Generator
 
-A Flask application that generates professional marketing brochures using OpenAI's GPT-3.5 API and converts them to PDF format.
+A web application that automatically generates professional marketing brochures for companies by analyzing their websites. The application uses AI to create compelling, well-structured brochures that highlight a company's key products, services, and value propositions.
 
 ## Features
 
-- Generate customized marketing brochures based on company information
-- Support for different industries and target audiences
-- Professional PDF output with clean formatting
-- Customizable tone and style
+- **Web Interface**: Simple and intuitive web interface for inputting company information
+- **Automated Analysis**: Scrapes and analyzes company websites to gather relevant information
+- **AI-Powered Content**: Uses OpenAI's GPT models to generate professional marketing copy
+- **Real-time Generation**: Background processing with status updates
+- **Multiple Formats**: Supports markdown output with HTML preview
+- **Downloadable Results**: Generated brochures can be downloaded for further use
 
-## Setup
+## Prerequisites
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Create a `.env` file in the root directory with your OpenAI API key:
-   ```
-   OPENAI_API_KEY=your_api_key_here
-   ```
+- Python 3.7+
+- OpenAI API key
+- Internet connection for website scraping
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd marketing-brochure-agent
+```
+
+2. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file in the project root with your OpenAI API key:
+```
+OPENAI_API_KEY=your_api_key_here
+```
 
 ## Usage
 
-1. Start the Flask server:
-   ```bash
-   python app.py
-   ```
+1. Start the Flask application:
+```bash
+python app.py
+```
 
-2. Send a POST request to `/generate` with the following JSON body:
-   ```json
-   {
-     "company_name": "Your Company",
-     "industry": "Technology",
-     "target_audience": "Small businesses",
-     "key_features": ["Feature 1", "Feature 2", "Feature 3"],
-     "tone": "professional"
-   }
-   ```
+2. Open your web browser and navigate to `http://localhost:5000`
 
-3. The server will respond with a PDF file containing the generated brochure.
+3. Enter the company name and website URL in the form
 
-## API Endpoints
+4. Wait for the brochure generation process to complete
 
-### POST /generate
+5. View and download the generated brochure
 
-Generates a marketing brochure and returns it as a PDF file.
+## Project Structure
 
-**Request Body:**
-- `company_name` (required): Name of the company
-- `industry` (required): Industry sector
-- `target_audience` (required): Target audience description
-- `key_features` (required): List of key features to highlight
-- `tone` (optional): Desired tone of the brochure (default: "professional")
-
-**Response:**
-- PDF file attachment
+- `app.py`: Main Flask application and web interface
+- `brochure_generator.py`: Core brochure generation logic
+- `templates/`: HTML templates for the web interface
+- `brochures/`: Directory for storing generated brochures
+- `requirements.txt`: Python package dependencies
 
 ## Dependencies
 
 - Flask: Web framework
-- OpenAI: GPT-3.5 API integration
-- WeasyPrint: PDF generation
-- python-dotenv: Environment variable management
-- markdown: Markdown to HTML conversion 
+- OpenAI: AI-powered content generation
+- BeautifulSoup4: Web scraping
+- Python-dotenv: Environment variable management
+- Markdown: Markdown processing
+- Werkzeug: WSGI utilities
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. 
